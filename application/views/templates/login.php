@@ -7,8 +7,6 @@
         <label for="loginPassword">Password</label>
         <input id="loginPassword" type="password" name="loginPassword" required>
 
-        <a href="#">Forgot password?</a>
-
         <p>No account? <a href="<?= base_url("register/") ?>">Register here</a></p>
 
         <button type="submit">Sign In</button>
