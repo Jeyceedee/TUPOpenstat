@@ -59,12 +59,13 @@ class Pages extends CI_Controller
             $regData[6] = $this->input->post("registerConfirmPassword");
             $regData[7] = $emailCode;
 
+
             $this->Surveyor->insertSurveyor(...$regData);
-            $this->sendEmail($emailCode, $regData['email']);
+            $this->sendEmail("You are registered successfuly in TUP Open Stat. To proceed please enter the verification code: ", $emailCode, $regData[0]);
         }
     }
 
-    public function sendEmail($code, $sendto)
+    public function sendEmail($message, $code, $sendto)
     {
         $emailConfig = array(
             "protocol" => "smtp",
@@ -72,7 +73,7 @@ class Pages extends CI_Controller
             "smtp_port" => 587,
             "smtp_crypto" => "tls",
             "smtp_user" => "arvinlaya283@gmail.com",
-            "smtp_pass" => "qcvdfrtsdizujypn",
+            "smtp_pass" => "jkoxlwvwhbbzsqxy",
             "charset" => "utf-8",
             "newline" => "\r\n"
         );
@@ -82,7 +83,7 @@ class Pages extends CI_Controller
         $this->email->from("arvinlaya283@gmail.com", "TUP Open Stat");
         $this->email->to($sendto);
         $this->email->subject("TUP Open Stat Verification");
-        $this->email->message("You are registered successfuly in TUP Open Stat. To proceed please enter the verification code: " . $code);
+        $this->email->message($message . $code);
 
         $this->email->send();
     }
@@ -217,6 +218,7 @@ class Pages extends CI_Controller
                     }
                 }
             }
+            $this->sendEmail("Form created successfuly. This is the access code for your survey: ", $accessCode, $data["email"]);
         }
 
         $this->load->view('templates/header', $data);
