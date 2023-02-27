@@ -4,7 +4,7 @@
 
 This is our final project on Software Engineering 2 subject.
 
-*Technologies:* HTML, CSS, JS, Bootstrap, PHP, phpMyAdmin, SQL
+*Technologies:* HTML, CSS, JS, Bootstrap, PHP, phpMyAdmin, SQL, CodeIgniter3 
 
 # © Copyright
 *Frontend Developers*
